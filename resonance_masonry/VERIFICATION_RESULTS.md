@@ -89,3 +89,56 @@ swipl -q -g "consult('resonance_masonry/subleq/resonant_subleq.pl'), demo_resona
 swipl -q -g "consult('resonance_masonry/connect/connect.pl'), connect_run, halt(0)" -t "halt(1)"
 java -Dsat4j=yes -cp <alloy.jar> edu.mit.csail.sdg.alloy4whole.SimpleCLI resonance_masonry\alloy\<File>.als
 ```
+
+---
+
+## Haskell Layer (resonance_masonry/haskell/)
+
+| File | Status | Notes |
+|------|--------|-------|
+| `ResonanceMasonry.hs` | RUNNABLE | GHC — GeoRel/EthRel/psi/CARE/SUBLEQ/resonance demo; `main` confirmed |
+| `ResonanceMasonry.lhs` | LiquidHaskell-annotated | `{-@ reflect @-}` stubs; L1 refinement obligation stated |
+
+### Re-run commands (Haskell)
+
+```text
+ghc -o rm resonance_masonry/haskell/ResonanceMasonry.hs && ./rm
+# LiquidHaskell (if installed):
+liquid resonance_masonry/haskell/ResonanceMasonry.lhs
+```
+
+### ResonanceMasonry.hs results
+
+```
+("OpInvariant(A)",True)
+("LightMasonry(Psi s)",True)
+("CARE",True)
+("DarkCrossing",False)
+("PC trace",[0,0,0,0,0,0,0,0,0,0,0,0])
+("PC period",Just 1)
+("resonance @ 1GHz",Just 1.0e9)
+```
+
+## Lean Layer addition (resonance_masonry/lean/ResonanceMasonry.lean)
+
+| Theorem | Status |
+|---------|--------|
+| `psiRel_preserves_allowed` | LEAN_OK |
+| `mapRels_subset_allowed` | LEAN_OK |
+| `psi_spInvariant` | LEAN_OK |
+| `psi_nonempty` | LEAN_OK |
+| `L1_psi_light` | LEAN_OK — opInvariant true s → lightMasonry (psi s) |
+| `FullCycle` definition | Added — full-state resonance recurrence |
+
+```text
+lean resonance_masonry/lean/ResonanceMasonry.lean
+```
+
+## Quantum Wires (quantum-wires/)
+
+| File | Location | Description |
+|------|----------|-------------|
+| `INVERTED-AST-CFG-PTM.lisp` | `ast/` | CFG binary (0x43464742) + PTM binary (0x544D5454) — Lisp S-expr spec |
+| `INVERTED-AST-QUIPPER-JCL.lisp` | `ast/` | Quipper circuit (0x51554950) + JCL Vault (0x4A434C4D) — Lisp S-expr spec |
+| `quantum_wire_network_1500_lines.hs` | `quipper/` | 743 named Quipper wires (True/False alternating); `wireBank`; `print_generic Preview` |
+| `BLRD-PTM-2026-001.txt` | `spec/` | 5541-req binary-level reference doc for the full PTM→Quipper→JCL pipeline |
