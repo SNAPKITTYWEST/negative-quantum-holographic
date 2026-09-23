@@ -161,19 +161,19 @@ pred syscall[s: State, cap: Cap] {
 -- ---------------------------------------------------------------------------
 
 -- Search for a Dark Masonry counterexample within a small scope
-run counterexample for 6 State, 3 Cap, 2 GodCap, 4 UserCap
+run counterexample for 6 State, 4 Cap, 2 GodCap, 4 UserCap, 4 Tactic
 
 -- Search for a membrane-crossing counterexample
-run membraneCounterexample for 6 State, 3 Cap
+run membraneCounterexample for 6 State, 4 Cap, 2 GodCap, 4 UserCap, 4 Tactic
 
 -- When the model has no adversarial transitions, CARE should hold in scope
-run careHolds for 4 State, 3 Cap
+run careHolds for 4 State, 3 Cap, 2 GodCap, 3 UserCap, 3 Tactic
 
 -- Authorized execution does not itself produce DarkMasonry
 assert authorizedPreservesCare {
   all s, s1: State | authorizedExecution[s, s1] implies Care[s, s1]
 }
-check authorizedPreservesCare for 5 State, 3 Cap
+check authorizedPreservesCare for 5 State, 3 Cap, 2 GodCap, 3 UserCap, 3 Tactic
 
 -- GOD MODE is not exempt from CARE
 assert godModeNotExempt {
@@ -181,4 +181,4 @@ assert godModeNotExempt {
     (Transition[s, s1] and s.authority & Sys.godDomain != none)
     implies Care[s, s1]
 }
-check godModeNotExempt for 5 State, 3 Cap
+check godModeNotExempt for 5 State, 3 Cap, 2 GodCap, 3 UserCap, 3 Tactic

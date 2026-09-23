@@ -61,14 +61,11 @@ pred entersTrap[s, s1: PCState] {
 -- Resonant trajectory: return to a previously visited PC after k steps
 pred resonant[k: Int] {
   k > 0
-  some disj s, s1: PCState |
-    s1.pc = s.pc
-    PCs/next[s] = s1
-    -- abstract: period witnessed within the linear order scope
-    k = 1 or k = 2 or k = 3
+  some s, s1: PCState |
+    (s1.pc = s.pc) and (PCs/next[s] = s1) and (k = 1 or k = 2 or k = 3)
 }
 
-run subleqStep for 8 PCState
-run resonant for 3 Int, 8 PCState
+run subleqStep for 8 PCState, 4 Domain
+run resonant for 3 Int, 8 PCState, 4 Domain
 run entersGodDomain for 6 PCState, 3 Domain
 run entersTrap for 6 PCState, 3 Domain
