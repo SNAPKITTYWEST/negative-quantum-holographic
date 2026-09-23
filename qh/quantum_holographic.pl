@@ -1,5 +1,5 @@
-%% SPDX-License-Identifier: GPL-3.0-or-later OR Apache-2.0
-%% CLONE_GATE: quantum_holographic_core
+%% SPDX-License-Identifier: AGPL-3.0-or-later OR Apache-2.0
+%% CLONE_GATE:AES256:f9a5e41f780778e3c3d288314f3a9540289bba7b936f95200cbbca1f870857c9
 %%
 %% quantum_holographic.pl — Quantum-Holographic Amplitude Engine
 %%

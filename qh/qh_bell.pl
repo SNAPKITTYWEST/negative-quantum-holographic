@@ -1,5 +1,5 @@
-%% SPDX-License-Identifier: GPL-3.0-or-later OR Apache-2.0
-%% CLONE_GATE: qh_bell_example
+%% SPDX-License-Identifier: AGPL-3.0-or-later OR Apache-2.0
+%% CLONE_GATE:AES256:4f360985852b37c60b34e29a6af16480852b703b842348aa69284cb42c6fb83f
 %%
 %% qh_bell.pl — Bell-State Correlations via PITA + Quantum-Holographic Engine
 %%

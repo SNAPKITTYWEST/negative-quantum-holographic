@@ -1,5 +1,5 @@
-%% SPDX-License-Identifier: GPL-3.0-or-later OR Apache-2.0
-%% CLONE_GATE: qh_examples
+%% SPDX-License-Identifier: AGPL-3.0-or-later OR Apache-2.0
+%% CLONE_GATE:AES256:6362ff27b925ed797e8e5a15523d897ff3406c36b61857d53fbd70c93f4dc95b
 %%
 %% qh_examples.pl — Interference, Unitary Mix, Quasi-Negativity, Born Rule
 %%

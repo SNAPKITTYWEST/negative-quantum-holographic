@@ -1,5 +1,5 @@
-%% SPDX-License-Identifier: GPL-3.0-or-later OR Apache-2.0
-%% CLONE_GATE: qh_cplint_bridge
+%% SPDX-License-Identifier: AGPL-3.0-or-later OR Apache-2.0
+%% CLONE_GATE:AES256:f5c306a0b729f4d2cb330d0a88ed1f7988025044180ed54fbce8260f6f9c9e90
 %%
 %% qh_cplint.pl — PITA/cplint Bridge for Quantum-Holographic Measurements
 %%
